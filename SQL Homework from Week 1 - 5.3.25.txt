@@ -1,0 +1,53 @@
+a) 
+
+SELECT first_name, last_name, salary 
+FROM employees
+
+-- 'Select' komutu, hangi sütunlardan veri çekeceğimi belirlerken kullandığım, hemen ardından virgülle istediğim sütun isimlerini yazdığım bir komut.
+-- 'From' ifadesini ise, söz konusu sütunların hangi tablodan getirileceğini belirtirken kullandım.
+
+
+
+b)
+
+SELECT DISTINCT department_name
+FROM departments
+
+-- Departman isimlerini, tabloda sadece birer kez yer alacak şekilde sunan 'distinct' komutunu kullanarak listeledim.
+-- 'From' ibaresinin ardından, departman isimlerinin çekileceği tablonun adını ekledim.
+
+
+
+c)
+
+IT departmanında çalışanları listelemek için, öncelikle aşağıdaki komut aracılığıyla 'where' ibaresini kullanarak, departman adı sütununda 'IT' olan satırları filtreledim ve 'department_id'yi öğrendim;
+
+SELECT *
+FROM departments
+WHERE ('IT') = department_name
+
+Ardından, aşağıdaki komutla IT departmanının ID'sine göre filtreleme yaptım;
+
+SELECT *
+FROM employees
+WHERE department_id = 6
+
+bu filtreleme sonucunda da departman ID'si 6 olan, dolayısıyla da IT departmanında çalışan kişileri listeledim.
+
+
+
+d)
+
+SELECT * FROM employees
+ORDER BY salary DESC 
+
+-- 'Select * from' komutuyla benim için gerekli olan tablo seçimini yapmanın ardından, 'order by' komutunu ekledim ve maaşa göre azalan bir sıralama yapmak içinse 'salary' ve ardından azalan anlamına gelen 'desc' ifadesini ekledim.
+
+
+
+e)
+
+SELECT first_name || ' ' || last_name
+FROM employees
+
+Üstteki komutla, 'first_name' ve 'last_name' sütunlarının arasına yukarıdaki biçimde dik çizgiler ekleyerek ve söz konusu dik çizgilerin arasına da kesme işaretiyle boşluk ekleyerek, 'employees' tablosundan çektiğim çalışan ad ve soyadlarını içeren bu iki sütunu, ad ve soyad bilgileri arasında bir boşluk olacak şekilde tek bir sütun haline getirdim.
