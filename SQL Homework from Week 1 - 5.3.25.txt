@@ -20,19 +20,19 @@ FROM departments
 
 c)
 
-IT departmanında çalışanları listelemek için, öncelikle aşağıdaki komut aracılığıyla 'where' ibaresini kullanarak, departman adı sütununda 'IT' olan satırları filtreledim ve 'department_id'yi öğrendim;
+-- IT departmanında çalışanları listelemek için, öncelikle aşağıdaki komut aracılığıyla 'where' ibaresini kullanarak, departman adı sütununda 'IT' olan satırları filtreledim ve 'department_id'yi öğrendim;
 
 SELECT *
 FROM departments
 WHERE ('IT') = department_name
 
-Ardından, aşağıdaki komutla IT departmanının ID'sine göre filtreleme yaptım;
+-- Ardından, aşağıdaki komutla IT departmanının ID'sine göre filtreleme yaptım;
 
 SELECT *
 FROM employees
 WHERE department_id = 6
 
-bu filtreleme sonucunda da departman ID'si 6 olan, dolayısıyla da IT departmanında çalışan kişileri listeledim.
+-- Bu filtreleme sonucunda da departman ID'si 6 olan, dolayısıyla da IT departmanında çalışan kişileri listeledim.
 
 
 
@@ -50,4 +50,4 @@ e)
 SELECT first_name || ' ' || last_name
 FROM employees
 
-Üstteki komutla, 'first_name' ve 'last_name' sütunlarının arasına yukarıdaki biçimde dik çizgiler ekleyerek ve söz konusu dik çizgilerin arasına da kesme işaretiyle boşluk ekleyerek, 'employees' tablosundan çektiğim çalışan ad ve soyadlarını içeren bu iki sütunu, ad ve soyad bilgileri arasında bir boşluk olacak şekilde tek bir sütun haline getirdim.
+-- Üstteki komutla, 'first_name' ve 'last_name' sütunlarının arasına yukarıdaki biçimde dik çizgiler ekleyerek ve söz konusu dik çizgilerin arasına da kesme işaretiyle boşluk ekleyerek, 'employees' tablosundan çektiğim çalışan ad ve soyadlarını içeren bu iki sütunu, ad ve soyad bilgileri arasında bir boşluk olacak şekilde tek bir sütun haline getirdim.
