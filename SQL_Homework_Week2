@@ -1,0 +1,50 @@
+-- Soru 1
+SELECT COUNT(*) 
+FROM invoice
+WHERE invoice_id IS NULL 
+  AND customer_id IS NULL 
+  AND invoice_date IS NULL 
+  AND billing_address IS NULL 
+  AND billing_city IS NULL 
+  AND billing_state IS NULL 
+  AND billing_country IS NULL 
+  AND billingpostal_code IS NULL 
+  AND total IS NULL;
+
+-- Row sayısı: 0
+
+
+--count(*) ile sayma işlemini, from invoice ile üzerinde işlem yapacağım tablo seçimini, where ve and ifadeleriyle de içlerinden null olanları getirmesini istediğim sütunların filtrelemesini yaptım.
+
+
+
+
+
+
+
+-- Soru 2
+select 
+	invoice_id,
+	total as total_ilk,
+	total * 2 as total2
+from invoice
+order by total2 desc;
+
+
+--invoice_id sütununu seçip ilk sütun olarak ekledim, total sütununu total_ilk şeklinde bir sütun olarak ekledim ki ilk değerler listelensin. onun yanına da total * 2 şeklinde bir işlem yaparak bu değerleri total2 sütunu olarak ayarladım ve bu şekilde total verilerinin 2 katı değerleri, total_ilk sütununun hemen yanında listelendi. order by _____ desc kullanımıyla da büyükten küçüğe sıralama yaptım.
+
+
+
+
+
+
+
+-- Soru 3
+select billing_address,
+	invoice_date,
+	concat((left(billing_address, 3)) || ' ' || (right(billing_address, 4))) as "Açık Adres"
+from invoice
+WHERE invoice_date >= '2013-08-01' AND invoice_date < '2013-09-01';
+
+
+--billing_address ve invoice_date sütunlarını listeledim. bunların yanına ise, billing_address sütununun soldan 3, sağdan 4 karakterini çekerek bunları concat metoduyla "Açık Adres" kolonunda birleştirdim. where ile başlayan kısımda da tarih aralığı seçimini yaptım.
