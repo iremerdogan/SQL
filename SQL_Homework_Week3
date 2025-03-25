@@ -1,0 +1,58 @@
+--1. Soru--
+
+select
+	sum(total)
+from invoice
+where billing_country = 'USA' and invoice_date between '2009-01-01' and '2009-12-31';
+
+
+--where satırında billing_country'yi USA ve invoice_date'i 2008-2010 yıllarının başları arasında olacak şekilde filtreleyerek bu doğrultuda olan verileri listeledim.
+--bu doğrultuda elde ettiğim sonucun total sütununa ait verileri, sum(total) komutunu kullanarak topladım.
+
+
+
+
+
+
+
+--2. Soru--
+
+select
+	t.track_id, p1.playlist_id, t.album_id, t.name,  p2.name, t.mediatype_id, t.genre_id, t.composer, t.milliseconds, t.bytes, t.unitprice --* ile aynı kolonlardan tekrar geldiği için bu şekilde yazdım.
+from track t
+inner join playlisttrack p1
+ 	on t.track_id = p1.track_id
+inner join playlist p2
+	on p1.playlist_id = p2.playlist_id;
+
+
+--select komutuyla getirmek istediğim sütunları seçtim. ardından veri çekeceğim tablolardan ilkini from ile alias beraberinde yazdım.
+--sonrasında inner join ile hangi tabloyla birleştireceğimi, on ile ise hangi ortak sütunlar üzerinden bağlayacağımı belirttim.
+--2. bir inner join ile de önceki adımlarla birleştirdiğim tabloyu, 3. tablom olan playlist ile, playlist_id sütunları üzerinden birleştirdim.
+--soruda track bilgileri istendiği için track tablosundaki kolonları eksiltmek istemedim ve tekrardan kaçınacak şekilde ekledim.
+
+
+
+
+
+
+--3. soru--
+
+select 
+	a1.title as album_name, 
+	a2.name as artist_name, 
+	t.name as track_name, 
+	t.milliseconds 
+from album a1
+inner join artist a2
+	on a1.artist_id = a2.artist_id
+	and a1.title = 'Let There Be Rock'
+inner join track t
+	on t.album_id = a1.album_id
+	order by milliseconds desc;
+
+
+--select satırından from satırına kadar album isimlerini, sanatçı isimlerini, parça isimlerini ve sürelerini içeren kolonları ilgili tablolardan çektim.
+--söz konusu kolonların hangi tablolarla bağlantılı olduğunu alias yardımıyla ayarladım. kolon isimlerini de alias kullanarak daha temiz ve okunaklı hale getirdim.
+--önce album ve artist tablolarını artist_id sütunu vasıtasıyla, ardından ortaya çıkan tabloyu da album_id sütunu vasıtasıyla birleştirdim.
+--order by ile süreleri, desc ibaresini de kullanarak azalan yönde listeledim.
